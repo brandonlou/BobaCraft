@@ -1,6 +1,8 @@
 package com.blou.bobamod;
 
 import com.blou.bobamod.util.RegistryHandler;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -36,5 +38,12 @@ public class Boba {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
     }
+
+    public static final ItemGroup TAB = new ItemGroup("bobaTab") {
+        @Override
+        public ItemStack createIcon() {
+            return new ItemStack(RegistryHandler.BLACK_TEA.get());
+        }
+    };
 
 }
