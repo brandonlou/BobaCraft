@@ -1,6 +1,7 @@
 package com.blou.bobamod;
 
-import com.blou.bobamod.util.RegistryHandler;
+import com.blou.bobamod.init.ModBlocks;
+import com.blou.bobamod.init.ModItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,7 +28,9 @@ public class BobaMod {
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        RegistryHandler.init();
+        // Register our custom blocks and items with event bus.
+        ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -42,7 +45,7 @@ public class BobaMod {
     public static final ItemGroup TAB = new ItemGroup("bobaTab") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.BLACK_TEA.get());
+            return new ItemStack(ModItems.BLACK_TEA.get());
         }
     };
 
