@@ -1,7 +1,6 @@
 package com.blou.bobamod.items;
 
-import com.blou.bobamod.Boba;
-import mcp.MethodsReturnNonnullByDefault;
+import com.blou.bobamod.BobaMod;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,7 +12,8 @@ public class ThaiTea extends Item {
 
     public ThaiTea() {
         super(new Item.Properties()
-                .group(Boba.TAB)
+                .group(BobaMod.TAB)
+                .maxStackSize(16)
                 .food(new Food.Builder()
                         .hunger(4)
                         .saturation(1.2f)

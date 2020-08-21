@@ -13,14 +13,14 @@ import org.apache.logging.log4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("bobamod")
-public class Boba {
+public class BobaMod {
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public static final String MOD_ID = "bobamod";
 
-    public Boba() {
+    public BobaMod() {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
