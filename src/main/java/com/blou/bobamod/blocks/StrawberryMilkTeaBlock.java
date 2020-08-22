@@ -12,11 +12,11 @@ import net.minecraft.world.IBlockReader;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class TaroMilkTeaBlock extends Block {
+public class StrawberryMilkTeaBlock extends Block {
 
     private static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
-    public TaroMilkTeaBlock() {
+    public StrawberryMilkTeaBlock() {
         super(AbstractBlock.Properties
                 .create(Material.ICE)
                 .hardnessAndResistance(0.3f)

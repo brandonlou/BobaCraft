@@ -1,6 +1,7 @@
 package com.blou.bobamod.init;
 
 import com.blou.bobamod.BobaMod;
+import com.blou.bobamod.blockitems.StrawberryMilkTeaItem;
 import com.blou.bobamod.blockitems.TaroMilkTeaItem;
 import com.blou.bobamod.items.ItemBase;
 import com.blou.bobamod.items.ThaiTea;
@@ -20,5 +21,8 @@ public class ModItems {
     // Block Items
     public static final RegistryObject<TaroMilkTeaItem> TARO_MILK_TEA_BLOCK_ITEM = ITEMS.register("taro_milk_tea_block",
             () -> new TaroMilkTeaItem(ModBlocks.TARO_MILK_TEA_BLOCK.get()));
+
+    public static final RegistryObject<StrawberryMilkTeaItem> STRAWBERRY_MILK_TEA_BLOCK_ITEM = ITEMS.register("strawberry_milk_tea_block",
+            () -> new StrawberryMilkTeaItem(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get()));
 
 }
