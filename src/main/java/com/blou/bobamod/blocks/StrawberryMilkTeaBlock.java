@@ -120,7 +120,7 @@ public class StrawberryMilkTeaBlock extends DirectionalBlock {
                 .setBlocksVision(StrawberryMilkTeaBlock::isntSolid));
     }
 
-    private static Boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
+    private static boolean neverAllowSpawn(BlockState state, IBlockReader reader, BlockPos pos, EntityType<?> entity) {
         return false;
     }
 
@@ -128,13 +128,15 @@ public class StrawberryMilkTeaBlock extends DirectionalBlock {
         return false;
     }
 
+    @Override
+    @ParametersAreNonnullByDefault
     public boolean propagatesSkylightDown(BlockState state, IBlockReader reader, BlockPos pos) {
         return true;
     }
 
-    public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
-        return VoxelShapes.empty();
-    }
+//    public VoxelShape getRayTraceShape(BlockState state, IBlockReader reader, BlockPos pos, ISelectionContext context) {
+//        return VoxelShapes.empty();
+//    }
 
     @Override
     @ParametersAreNonnullByDefault
