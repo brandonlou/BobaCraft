@@ -2,6 +2,8 @@ package com.blou.bobamod;
 
 import com.blou.bobamod.init.ModBlocks;
 import com.blou.bobamod.init.ModItems;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,6 +39,7 @@ public class BobaMod {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get(), RenderType.getTranslucent());
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
