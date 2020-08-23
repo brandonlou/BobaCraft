@@ -40,8 +40,9 @@ public class BobaMod {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get(), RenderType.getTranslucent());
         RenderTypeLookup.setRenderLayer(ModBlocks.THAI_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(ModBlocks.TARO_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {

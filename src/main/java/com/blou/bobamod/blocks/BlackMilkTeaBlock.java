@@ -1,4 +1,8 @@
 package com.blou.bobamod.blocks;
 
-public class BlackMilkTeaBlock {
+public class BlackMilkTeaBlock extends BobaBlockBase {
+
+    public BlackMilkTeaBlock() {
+    }
+
 }

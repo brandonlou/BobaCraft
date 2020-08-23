@@ -12,16 +12,83 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.util.Mirror;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.stream.Stream;
 
 public abstract class BobaBlockBase extends DirectionalBlock {
 
     private static final float HARDNESS_AND_RESISTANCE = 0.3f;
     private static final float LIGHT_VALUE = 0.5f;
+
+    private static final VoxelShape NORTH = Stream.of(
+            Block.makeCuboidShape(5.75, 6, 10.25, 10.25, 9, 10.5),
+            Block.makeCuboidShape(5.75, 0, 5.75, 10.25, 0.25, 10.25),
+            Block.makeCuboidShape(5.75, 8.75, 5.75, 10.25, 9, 10.25),
+            Block.makeCuboidShape(5.75, 0.25, 10, 10.25, 6, 10.25),
+            Block.makeCuboidShape(10, 0.25, 6, 10.25, 6, 10),
+            Block.makeCuboidShape(5.75, 0.25, 6, 6, 6, 10),
+            Block.makeCuboidShape(5.5, 6, 5.5, 5.75, 9, 10.5),
+            Block.makeCuboidShape(10.25, 6, 5.5, 10.5, 9, 10.5),
+            Block.makeCuboidShape(5.75, 0.25, 5.75, 10.25, 6, 6),
+            Block.makeCuboidShape(5.75, 6, 5.5, 10.25, 9, 5.75),
+            Block.makeCuboidShape(7.5, 8.75, 7.5, 8.5, 12, 8.5),
+            Block.makeCuboidShape(6, 0.25, 6, 10, 6, 10),
+            Block.makeCuboidShape(5.75, 6, 5.75, 10.25, 8.75, 10.25)
+    ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);}).get();
+
+    private static final VoxelShape EAST = Stream.of(
+            Block.makeCuboidShape(10.25, 6, 5.75, 10.5, 9, 10.25),
+            Block.makeCuboidShape(5.75, 0, 5.75, 10.25, 0.25, 10.25),
+            Block.makeCuboidShape(5.75, 8.75, 5.75, 10.25, 9, 10.25),
+            Block.makeCuboidShape(10, 0.25, 5.75, 10.25, 6, 10.25),
+            Block.makeCuboidShape(6, 0.25, 5.75, 10, 6, 6),
+            Block.makeCuboidShape(6, 0.25, 10, 10, 6, 10.25),
+            Block.makeCuboidShape(5.5, 6, 10.25, 10.5, 9, 10.5),
+            Block.makeCuboidShape(5.5, 6, 5.5, 10.5, 9, 5.75),
+            Block.makeCuboidShape(5.75, 0.25, 5.75, 6, 6, 10.25),
+            Block.makeCuboidShape(5.5, 6, 5.75, 5.75, 9, 10.25),
+            Block.makeCuboidShape(7.5, 8.75, 7.5, 8.5, 12, 8.5),
+            Block.makeCuboidShape(6, 0.25, 6, 10, 6, 10),
+            Block.makeCuboidShape(5.75, 6, 5.75, 10.25, 8.75, 10.25)
+    ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);}).get();
+
+    private static final VoxelShape SOUTH = Stream.of(
+            Block.makeCuboidShape(5.75, 6, 5.5, 10.25, 9, 5.75),
+            Block.makeCuboidShape(5.75, 0, 5.75, 10.25, 0.25, 10.25),
+            Block.makeCuboidShape(5.75, 8.75, 5.75, 10.25, 9, 10.25),
+            Block.makeCuboidShape(5.75, 0.25, 5.75, 10.25, 6, 6),
+            Block.makeCuboidShape(5.75, 0.25, 6, 6, 6, 10),
+            Block.makeCuboidShape(10, 0.25, 6, 10.25, 6, 10),
+            Block.makeCuboidShape(10.25, 6, 5.5, 10.5, 9, 10.5),
+            Block.makeCuboidShape(5.5, 6, 5.5, 5.75, 9, 10.5),
+            Block.makeCuboidShape(5.75, 0.25, 10, 10.25, 6, 10.25),
+            Block.makeCuboidShape(5.75, 6, 10.25, 10.25, 9, 10.5),
+            Block.makeCuboidShape(7.5, 8.75, 7.5, 8.5, 12, 8.5),
+            Block.makeCuboidShape(6, 0.25, 6, 10, 6, 10),
+            Block.makeCuboidShape(5.75, 6, 5.75, 10.25, 8.75, 10.25)
+    ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);}).get();
+
+    private static final VoxelShape WEST = Stream.of(
+            Block.makeCuboidShape(5.5, 6, 5.75, 5.75, 9, 10.25),
+            Block.makeCuboidShape(5.75, 0, 5.75, 10.25, 0.25, 10.25),
+            Block.makeCuboidShape(5.75, 8.75, 5.75, 10.25, 9, 10.25),
+            Block.makeCuboidShape(5.75, 0.25, 5.75, 6, 6, 10.25),
+            Block.makeCuboidShape(6, 0.25, 10, 10, 6, 10.25),
+            Block.makeCuboidShape(6, 0.25, 5.75, 10, 6, 6),
+            Block.makeCuboidShape(5.5, 6, 5.5, 10.5, 9, 5.75),
+            Block.makeCuboidShape(5.5, 6, 10.25, 10.5, 9, 10.5),
+            Block.makeCuboidShape(10, 0.25, 5.75, 10.25, 6, 10.25),
+            Block.makeCuboidShape(10.25, 6, 5.75, 10.5, 9, 10.25),
+            Block.makeCuboidShape(7.5, 8.75, 7.5, 8.5, 12, 8.5),
+            Block.makeCuboidShape(6, 0.25, 6, 10, 6, 10),
+            Block.makeCuboidShape(5.75, 6, 5.75, 10.25, 8.75, 10.25)
+    ).reduce((v1, v2) -> {return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);}).get();
 
     public BobaBlockBase() {
         super(AbstractBlock.Properties
@@ -50,25 +117,20 @@ public abstract class BobaBlockBase extends DirectionalBlock {
         return true;
     }
 
-    abstract VoxelShape getShapeN();
-    abstract VoxelShape getShapeE();
-    abstract VoxelShape getShapeS();
-    abstract VoxelShape getShapeW();
-
     @Override
     @ParametersAreNonnullByDefault
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         switch(state.get(FACING)) {
             case NORTH:
-                return getShapeN();
+                return NORTH;
             case EAST:
-                return getShapeE();
+                return EAST;
             case SOUTH:
-                return getShapeS();
+                return SOUTH;
             case WEST:
-                return getShapeW();
+                return WEST;
             default:
-                return getShapeN();
+                return NORTH;
         }
     }
 

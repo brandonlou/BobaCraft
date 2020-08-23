@@ -2,9 +2,9 @@ package com.blou.bobamod.blockitems;
 
 import net.minecraft.block.Block;
 
-public class BlackMilkTeaItem extends BobaItemBase {
+public class GreenMilkTeaItem extends BobaItemBase {
 
-    public BlackMilkTeaItem(Block block) {
+    public GreenMilkTeaItem(Block block) {
         super(block);
     }
 

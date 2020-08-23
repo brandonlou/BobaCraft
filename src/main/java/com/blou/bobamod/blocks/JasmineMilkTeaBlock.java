@@ -1,4 +1,7 @@
 package com.blou.bobamod.blocks;
 
-public class JasmineMilkTeaBlock {
+public class JasmineMilkTeaBlock extends BobaBlockBase {
+
+    public JasmineMilkTeaBlock() {}
+
 }
