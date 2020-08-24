@@ -3,7 +3,6 @@ package com.blou.bobamod;
 import com.blou.bobamod.init.ModBlocks;
 import com.blou.bobamod.init.ModItems;
 import com.blou.bobamod.util.RenderHelper;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -17,12 +16,20 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod("bobamod")
 public class BobaMod {
 
-    // Directly reference a log4j logger.
-//    private static final Logger LOGGER = LogManager.getLogger();
-
-    public static final String MOD_ID = "bobamod";
+    private final ModBlocks modBlocks;
+    private final ModItems modItems;
+    private final ItemGroup TAB;
 
     public BobaMod() {
+
+        modBlocks = ModBlocks.getInstance(this);
+        modItems = ModItems.getInstance(this);
+        TAB = new ItemGroup("bobaTab") {
+            @Override
+            public ItemStack createIcon() {
+                return new ItemStack(modItems.getCreativeTabIcon()); // TODO: Change to black milk tea
+            }
+        };
 
         // Register the setup method for modloading.
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -31,29 +38,29 @@ public class BobaMod {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         // Register our custom blocks and items with the event bus.
-        ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        modBlocks.getBlocksRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
+        modItems.getItems().register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Register ourselves for server and other game events we are interested in.
         MinecraftForge.EVENT_BUS.register(this);
 
     }
 
+    public String getModID() {
+        return "bobamod";
+    }
+
     private void setup(final FMLCommonSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.THAI_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(ModBlocks.TARO_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("thai_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("taro_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("strawberry_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
     }
 
-    // Create custom creative tab.
-    public static final ItemGroup TAB = new ItemGroup("bobaTab") {
-        @Override
-        public ItemStack createIcon() {
-            return new ItemStack(ModItems.STRAWBERRY_MILK_TEA_BLOCK_ITEM.get()); // TODO: Change to black milk tea
-        }
-    };
+    public ItemGroup getTab() {
+        return TAB;
+    }
 
 }

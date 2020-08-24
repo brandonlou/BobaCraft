@@ -7,15 +7,38 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.HashMap;
+
 public class ModBlocks {
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, BobaMod.MOD_ID);
+    private static ModBlocks instance;
+    public static ModBlocks getInstance(BobaMod bobaMod) {
+        if(instance == null) instance = new ModBlocks(bobaMod);
+        return instance;
+    }
 
-    public static final RegistryObject<Block> BLACK_MILK_TEA_BLOCK = BLOCKS.register("black_milk_tea_block", BlackMilkTeaBlock::new);
-    public static final RegistryObject<Block> THAI_MILK_TEA_BLOCK = BLOCKS.register("thai_milk_tea_block", ThaiMilkTeaBlock::new);
-    public static final RegistryObject<Block> GREEN_MILK_TEA_BLOCK = BLOCKS.register("green_milk_tea_block", GreenMilkTeaBlock::new);
-    public static final RegistryObject<Block> JASMINE_MILK_TEA_BLOCK = BLOCKS.register("jasmine_milk_tea_block", JasmineMilkTeaBlock::new);
-    public static final RegistryObject<Block> TARO_MILK_TEA_BLOCK = BLOCKS.register("taro_milk_tea_block", TaroMilkTeaBlock::new);
-    public static final RegistryObject<Block> STRAWBERRY_MILK_TEA_BLOCK = BLOCKS.register("strawberry_milk_tea_block", StrawberryMilkTeaBlock::new);
+    private final DeferredRegister<Block> BLOCKS;
+    private final HashMap<String, RegistryObject<Block>> BOBA_BLOCKS;
+
+    private ModBlocks(BobaMod bobaMod) {
+        BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, bobaMod.getModID());
+        BOBA_BLOCKS = new HashMap<String, RegistryObject<Block>>() {{
+            put("black_milk_tea_block", BLOCKS.register("black_milk_tea_block", BlackMilkTeaBlock::new));
+            put("thai_milk_tea_block", BLOCKS.register("thai_milk_tea_block", ThaiMilkTeaBlock::new));
+            put("green_milk_tea_block", BLOCKS.register("green_milk_tea_block", GreenMilkTeaBlock::new));
+            put("jasmine_milk_tea_block", BLOCKS.register("jasmine_milk_tea_block", JasmineMilkTeaBlock::new));
+            put("taro_milk_tea_block", BLOCKS.register("taro_milk_tea_block", TaroMilkTeaBlock::new));
+            put("strawberry_milk_tea_block", BLOCKS.register("strawberry_milk_tea_block", StrawberryMilkTeaBlock::new));
+        }};
+
+    }
+
+    public DeferredRegister<Block> getBlocksRegister() {
+        return BLOCKS;
+    }
+
+    public Block getBlock(String key) {
+        return BOBA_BLOCKS.get(key).get();
+    }
 
 }

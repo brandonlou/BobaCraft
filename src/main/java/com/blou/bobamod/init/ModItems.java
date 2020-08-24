@@ -3,30 +3,42 @@ package com.blou.bobamod.init;
 import com.blou.bobamod.BobaMod;
 import com.blou.bobamod.blockitems.*;
 import net.minecraft.item.Item;
+import net.minecraft.util.IItemProvider;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, BobaMod.MOD_ID);
+    private static ModItems instance;
+    public static ModItems getInstance(BobaMod bobaMod) {
+        if(instance == null) instance = new ModItems(bobaMod);
+        return instance;
+    }
 
-    public static final RegistryObject<BlackMilkTeaItem> BLACK_MILK_TEA_BLOCK_ITEM = ITEMS.register("black_milk_tea_block",
-            () -> new BlackMilkTeaItem(ModBlocks.BLACK_MILK_TEA_BLOCK.get()));
+    private final ModBlocks modBlocks;
+    private final DeferredRegister<Item> ITEMS;
+    private final RegistryObject<Item>[] BOBA_ITEMS;
 
-    public static final RegistryObject<JasmineMilkTeaItem> JASMINE_MILK_TEA_BLOCK_ITEM = ITEMS.register("jasmine_milk_tea_block",
-            () -> new JasmineMilkTeaItem(ModBlocks.JASMINE_MILK_TEA_BLOCK.get()));
+    private ModItems(BobaMod bobaMod) {
+        modBlocks = ModBlocks.getInstance(bobaMod);
+        ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, bobaMod.getModID());
+        BOBA_ITEMS = new RegistryObject[]{
+                ITEMS.register("black_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("black_milk_tea_block"), bobaMod)),
+                ITEMS.register("jasmine_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("jasmine_milk_tea_block"), bobaMod)),
+                ITEMS.register("green_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("green_milk_tea_block"), bobaMod)),
+                ITEMS.register("thai_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("thai_milk_tea_block"), bobaMod)),
+                ITEMS.register("taro_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("taro_milk_tea_block"), bobaMod)),
+                ITEMS.register("strawberry_milk_tea_block", () -> new BobaItemBase(modBlocks.getBlock("strawberry_milk_tea_block"), bobaMod)),
+        };
+    }
 
-    public static final RegistryObject<GreenMilkTeaItem> GREEN_MILK_TEA_BLOCK_ITEM = ITEMS.register("green_milk_tea_block",
-            () -> new GreenMilkTeaItem(ModBlocks.GREEN_MILK_TEA_BLOCK.get()));
+    public DeferredRegister<Item> getItems() {
+        return ITEMS;
+    }
 
-    public static final RegistryObject<ThaiMilkTeaItem> THAI_MILK_TEA_BLOCK_ITEM = ITEMS.register("thai_milk_tea_block",
-            () -> new ThaiMilkTeaItem(ModBlocks.THAI_MILK_TEA_BLOCK.get()));
-
-    public static final RegistryObject<TaroMilkTeaItem> TARO_MILK_TEA_BLOCK_ITEM = ITEMS.register("taro_milk_tea_block",
-            () -> new TaroMilkTeaItem(ModBlocks.TARO_MILK_TEA_BLOCK.get()));
-
-    public static final RegistryObject<StrawberryMilkTeaItem> STRAWBERRY_MILK_TEA_BLOCK_ITEM = ITEMS.register("strawberry_milk_tea_block",
-            () -> new StrawberryMilkTeaItem(ModBlocks.STRAWBERRY_MILK_TEA_BLOCK.get()));
+    public IItemProvider getCreativeTabIcon() {
+        return BOBA_ITEMS[0].get();
+    }
 
 }

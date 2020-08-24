@@ -12,14 +12,14 @@ import net.minecraft.potion.Effects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public abstract class BobaItemBase extends BlockItem {
+public class BobaItemBase extends BlockItem {
 
     private static final int MAX_STACK_SIZE = 16;
     private static final int HEALTH_REGEN = 16;
 
-    public BobaItemBase(Block block) {
+    public BobaItemBase(Block block, BobaMod bobaMod) {
         super(block, new Item.Properties()
-                .group(BobaMod.TAB)
+                .group(bobaMod.getTab())
                 .maxStackSize(MAX_STACK_SIZE)
                 .food(new Food.Builder()
                         .hunger(HEALTH_REGEN)
