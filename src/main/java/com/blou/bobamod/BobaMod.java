@@ -12,6 +12,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import javax.annotation.Nonnull;
+
 // The value here should match an entry in the META-INF/mods.toml file.
 @Mod("bobamod")
 public class BobaMod {
@@ -25,7 +27,7 @@ public class BobaMod {
         modBlocks = ModBlocks.getInstance(this);
         modItems = ModItems.getInstance(this);
         TAB = new ItemGroup("bobaTab") {
-            @Override
+            @Override @Nonnull
             public ItemStack createIcon() {
                 return new ItemStack(modItems.getCreativeTabIcon()); // TODO: Change to black milk tea
             }
