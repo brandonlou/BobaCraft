@@ -10,6 +10,7 @@ import net.minecraft.item.UseAction;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BobaItemBase extends BlockItem {
@@ -30,8 +31,9 @@ public class BobaItemBase extends BlockItem {
                         .build()));
     }
 
-    @ParametersAreNonnullByDefault
     @Override
+    @Nonnull
+    @ParametersAreNonnullByDefault
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }
