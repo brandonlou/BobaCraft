@@ -20,5 +20,6 @@ screenshots, etc).
 
 ## Possible Features
 * Better pixel art
+* Boba ball crafting from scratch (growing tapioca, etc)
 * Boba straw colors
 * Different toppings (grass jelly, etc.)

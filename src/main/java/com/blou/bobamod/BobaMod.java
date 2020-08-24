@@ -20,16 +20,17 @@ public class BobaMod {
 
     private final ModBlocks modBlocks;
     private final ModItems modItems;
-    private final ItemGroup TAB;
+    private final ItemGroup tab;
 
     public BobaMod() {
 
         modBlocks = ModBlocks.getInstance(this);
         modItems = ModItems.getInstance(this);
-        TAB = new ItemGroup("bobaTab") {
-            @Override @Nonnull
+        tab = new ItemGroup("bobaTab") {
+            @Override
+            @Nonnull
             public ItemStack createIcon() {
-                return new ItemStack(modItems.getCreativeTabIcon()); // TODO: Change to black milk tea
+                return new ItemStack(modItems.getCreativeTabIcon());
             }
         };
 
@@ -53,16 +54,21 @@ public class BobaMod {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("thai_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("taro_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getBlock("strawberry_milk_tea_block"), RenderHelper::getSolidOrTranslucent);
+
+        String[] blocksToRender = {"black_milk_tea_block", "jasmine_milk_tea_block", "green_milk_tea_block",
+                "thai_milk_tea_block", "taro_milk_tea_block", "strawberry_milk_tea_block"};
+
+        for(String block : blocksToRender) {
+            RenderTypeLookup.setRenderLayer(modBlocks.getBlock(block), RenderHelper::getSolidOrTranslucent);
+        }
+
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
     }
 
     public ItemGroup getTab() {
-        return TAB;
+        return tab;
     }
 
 }
