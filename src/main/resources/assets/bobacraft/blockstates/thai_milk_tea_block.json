@@ -3,6 +3,8 @@
     "facing=north": { "model": "bobacraft:block/thai_milk_tea_block" },
     "facing=south": { "model": "bobacraft:block/thai_milk_tea_block", "y":  180},
     "facing=west":  { "model": "bobacraft:block/thai_milk_tea_block", "y":  270},
-    "facing=east":  { "model": "bobacraft:block/thai_milk_tea_block", "y":  90}
+    "facing=east":  { "model": "bobacraft:block/thai_milk_tea_block", "y":  90},
+    "facing=up":    { "model": "bobacraft:block/thai_milk_tea_block" },
+    "facing=down":  { "model": "bobacraft:block/thai_milk_tea_block", "x": 180 }
   }
 }
