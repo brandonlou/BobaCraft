@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "lll",
+    "sms",
+    "iii"
+  ],
+  "key":
+  {
+    "l": { "item": "minecraft:spruce_leaves" },
+    "s": { "item": "minecraft:sugar" },
+    "m": { "item": "minecraft:milk_bucket" },
+    "i": { "item": "minecraft:ink_sac" }
+  },
+  "result":
+  {
+    "item": "bobacraft:green_milk_tea_block",
+    "count": 1
+  }
+}

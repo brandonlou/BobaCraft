@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "bobamod:block/jasmine_milk_tea_block" },
-    "facing=south": { "model": "bobamod:block/jasmine_milk_tea_block", "y":  180},
-    "facing=west":  { "model": "bobamod:block/jasmine_milk_tea_block", "y":  270},
-    "facing=east":  { "model": "bobamod:block/jasmine_milk_tea_block", "y":  90}
-  }
-}

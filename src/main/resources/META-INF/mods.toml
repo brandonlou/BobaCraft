@@ -20,25 +20,25 @@ issueTrackerURL="https://github.com/brandonlou/Boba_Mod/issues" #optional
 [[mods]] #mandatory
 
 # The modid of the mod
-modId="bobamod" #mandatory
+modId="bobacraft" #mandatory
 
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="1.16.2-0.1.0" #mandatory
 
  # A display name for the mod
-displayName="The Boba Mod" #mandatory
+displayName="BobaCraft" #mandatory
 
 # A URL to query for updates for this mod. See the JSON update specification <here>
 updateJSONURL="http://myurl.me/" #optional
 
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL="http://github.com/brandonlou/Boba-Mod" #optional
+displayURL="http://github.com/brandonlou/BobaCraft" #optional
 
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 
 # A text field displayed in the mod UI
-credits="Thank you to all the amazing boba lovers that support The Boba Mod!" #optional
+credits="Thank you to all the amazing boba lovers that support BobaCraft!" #optional
 
 # A text field displayed in the mod UI
 authors="brandon <3" #optional
