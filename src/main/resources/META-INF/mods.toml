@@ -45,7 +45,9 @@ authors="brandon <3" #optional
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-Make boba in Minecraft!
+Craft bubble tea!
+
+Enjoy your very own black milk tea with cube-shaped boba on a cool sunny day as you stroll along your Minecraft world, enjoying the blocky scenery and taking in the Minecraft life. Multiple flavors available!
 '''
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
