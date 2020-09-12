@@ -8,8 +8,8 @@ import net.minecraft.item.Rarity;
 public class BobaBallItem extends Item {
 
     private static final int maxStackSize = 64;
-    private static final int hunger = 16;
-    private static final float saturation = 1.0f;
+    private static final int hunger = 1; // Restores half a heart.
+    private static final float saturation = 0.5f;
 
     public BobaBallItem(BobaCraft bobaCraft) {
 
