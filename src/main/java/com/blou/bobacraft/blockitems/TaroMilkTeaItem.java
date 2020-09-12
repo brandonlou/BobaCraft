@@ -1,6 +1,5 @@
 package com.blou.bobacraft.blockitems;
 
-import com.blou.bobacraft.BobaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.potion.EffectInstance;

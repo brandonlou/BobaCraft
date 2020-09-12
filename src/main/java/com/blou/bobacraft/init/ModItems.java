@@ -1,8 +1,8 @@
 package com.blou.bobacraft.init;
 
-import com.blou.bobacraft.BobaCraft;
 import com.blou.bobacraft.blockitems.*;
 import com.blou.bobacraft.items.BobaBallItem;
+import com.blou.bobacraft.items.BobaPopsicleItem;
 import com.blou.bobacraft.items.CassavaRootItem;
 import com.blou.bobacraft.items.TapiocaStarchItem;
 import net.minecraft.item.BlockItem;
@@ -36,6 +36,7 @@ public class ModItems {
         items.register("cassava_root_item", () -> new CassavaRootItem(itemGroup));
         items.register("tapioca_starch_item", () -> new TapiocaStarchItem(itemGroup));
         items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
+        items.register("boba_popsicle_item", () -> new BobaPopsicleItem(itemGroup));
 
         // Block items
 

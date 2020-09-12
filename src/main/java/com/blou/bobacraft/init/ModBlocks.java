@@ -1,6 +1,5 @@
 package com.blou.bobacraft.init;
 
-import com.blou.bobacraft.BobaCraft;
 import com.blou.bobacraft.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemGroup;

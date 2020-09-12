@@ -1,6 +1,5 @@
 package com.blou.bobacraft.items;
 
-import com.blou.bobacraft.BobaCraft;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -21,6 +20,7 @@ public class BobaBallItem extends Item {
                 .food(new Food.Builder()
                         .hunger(hunger)
                         .saturation(saturation)
+                        .fastToEat()
                         .setAlwaysEdible()
                         .build())
         );

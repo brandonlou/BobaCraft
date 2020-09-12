@@ -16,7 +16,7 @@ public class CassavaRootItem extends Item {
         super(new Item.Properties()
             .group(itemGroup)
             .maxStackSize(maxStackSize)
-            .rarity(Rarity.UNCOMMON)
+            .rarity(Rarity.COMMON)
             .food(new Food.Builder()
                 .hunger(hunger)
                 .saturation(saturation)

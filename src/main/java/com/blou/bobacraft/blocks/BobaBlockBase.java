@@ -23,8 +23,8 @@ import java.util.stream.Stream;
 
 public abstract class BobaBlockBase extends DirectionalBlock {
 
-    private static final float HARDNESS_AND_RESISTANCE = 0.3f;
-    private static final float LIGHT_VALUE = 0.5f;
+    private static final float hardnessAndResistance = 0.3f;
+    private static final float lightValue = 0.5f;
 
     private static final VoxelShape NORTH = Stream.of(
             Block.makeCuboidShape(5.75, 6, 10.25, 10.25, 9, 10.5),
@@ -93,7 +93,7 @@ public abstract class BobaBlockBase extends DirectionalBlock {
     public BobaBlockBase() {
         super(AbstractBlock.Properties
                 .create(Material.ICE)
-                .hardnessAndResistance(HARDNESS_AND_RESISTANCE)
+                .hardnessAndResistance(hardnessAndResistance)
                 .sound(SoundType.SNOW)
                 .notSolid()
                 .variableOpacity()
@@ -144,6 +144,7 @@ public abstract class BobaBlockBase extends DirectionalBlock {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
 
+    @Deprecated
     @Override @Nonnull
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return state.rotate(mirrorIn.toRotation(state.get(FACING)));
@@ -157,7 +158,7 @@ public abstract class BobaBlockBase extends DirectionalBlock {
     @Override
     @ParametersAreNonnullByDefault
     public float getAmbientOcclusionLightValue(BlockState state, IBlockReader worldIn, BlockPos pos) {
-        return LIGHT_VALUE;
+        return lightValue;
     }
 
     @Override @Nonnull
