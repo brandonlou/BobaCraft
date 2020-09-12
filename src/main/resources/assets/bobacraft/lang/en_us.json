@@ -1,7 +1,10 @@
 {
-  "itemGroup.bobaTab": "Boba",
+
+  "itemGroup.bobaTab": "BobaCraft",
 
   "item.bobacraft.boba_ball_item": "Boba Ball",
+  "item.bobacraft.cassava_root_item": "Cassava Root",
+  "item.bobacraft.tapioca_starch_item": "Tapioca Starch",
 
   "block.bobacraft.cassava_crop_block": "Cassava Seeds",
   "block.bobacraft.black_milk_tea_block": "Black Milk Tea",
@@ -9,5 +12,6 @@
   "block.bobacraft.green_milk_tea_block": "Green Milk Tea",
   "block.bobacraft.jasmine_milk_tea_block": "Jasmine Milk Tea",
   "block.bobacraft.taro_milk_tea_block": "Taro Milk Tea",
-  "block.bobacraft.strawberry_milk_tea_block": "Strawberry Milk Tea"
+  "block.bobacraft.strawberry_milk_tea_block": "Strawberry Milk Tea",
+
 }

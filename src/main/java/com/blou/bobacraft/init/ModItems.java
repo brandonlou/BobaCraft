@@ -3,6 +3,8 @@ package com.blou.bobacraft.init;
 import com.blou.bobacraft.BobaCraft;
 import com.blou.bobacraft.blockitems.*;
 import com.blou.bobacraft.items.BobaBallItem;
+import com.blou.bobacraft.items.CassavaRootItem;
+import com.blou.bobacraft.items.TapiocaStarchItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.IItemProvider;
@@ -30,8 +32,9 @@ public class ModItems {
 
         // Regular items
 
-        items.register("boba_ball_item",
-                () -> new BobaBallItem(bobaCraft));
+        items.register("cassava_root_item", () -> new CassavaRootItem(bobaCraft));
+        items.register("tapioca_starch_item", () -> new TapiocaStarchItem(bobaCraft));
+        items.register("boba_ball_item", () -> new BobaBallItem(bobaCraft));
 
         // Block items
 
