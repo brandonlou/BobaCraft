@@ -39,22 +39,22 @@ public class ModItems {
         // Block items
 
         blackMilkTeaBlockItem = items.register("black_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getBlackMilkTeaBlock(), bobaCraft));
+                () -> new BlackMilkTeaItem(modBlocks.getBlackMilkTeaBlock(), bobaCraft));
 
         items.register("jasmine_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getJasmineMilkTeaBlock(), bobaCraft));
+                () -> new JasmineMilkTeaItem(modBlocks.getJasmineMilkTeaBlock(), bobaCraft));
 
         items.register("green_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getGreenMilkTeaBlock(), bobaCraft));
+                () -> new GreenMilkTeaItem(modBlocks.getGreenMilkTeaBlock(), bobaCraft));
 
         items.register("thai_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getThaiMilkTeaBlock(), bobaCraft));
+                () -> new ThaiMilkTeaItem(modBlocks.getThaiMilkTeaBlock(), bobaCraft));
 
         items.register("taro_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getTaroMilkTeaBlock(), bobaCraft));
+                () -> new TaroMilkTeaItem(modBlocks.getTaroMilkTeaBlock(), bobaCraft));
 
         items.register("strawberry_milk_tea_block",
-                () -> new BobaItemBase(modBlocks.getStrawberryMilkTeaBlock(), bobaCraft));
+                () -> new StrawberryMilkTeaItem(modBlocks.getStrawberryMilkTeaBlock(), bobaCraft));
 
         cassavaSeedItem = items.register("cassava_seed_item",
                 () -> new BlockItem(modBlocks.getCassavaCropBlock(), new Item.Properties().group(bobaCraft.getTab())));
