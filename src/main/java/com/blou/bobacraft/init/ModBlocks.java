@@ -3,6 +3,7 @@ package com.blou.bobacraft.init;
 import com.blou.bobacraft.BobaCraft;
 import com.blou.bobacraft.blocks.*;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemGroup;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -10,8 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 public class ModBlocks {
 
     private static ModBlocks instance;
-    public static ModBlocks getInstance(BobaCraft bobaCraft) {
-        if(instance == null) instance = new ModBlocks(bobaCraft);
+    public static ModBlocks getInstance(ItemGroup itemGroup, String modID) {
+        if(instance == null) instance = new ModBlocks(itemGroup, modID);
         return instance;
     }
 
@@ -19,9 +20,9 @@ public class ModBlocks {
     private final RegistryObject<Block> blackMilkTeaBlock, thaiMilkTeaBlock, greenMilkTeaBlock, jasmineMilkTeaBlock,
         taroMilkTeaBlock, strawberryMilkTeaBlock, cassavaCropBlock;
 
-    private ModBlocks(BobaCraft bobaCraft) {
+    private ModBlocks(ItemGroup itemGroup, String modID) {
 
-        blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, bobaCraft.getModID());
+        blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, modID);
 
         blackMilkTeaBlock = blocks.register("black_milk_tea_block", BlackMilkTeaBlock::new);
         thaiMilkTeaBlock = blocks.register("thai_milk_tea_block", ThaiMilkTeaBlock::new);
@@ -29,8 +30,7 @@ public class ModBlocks {
         jasmineMilkTeaBlock = blocks.register("jasmine_milk_tea_block", JasmineMilkTeaBlock::new);
         taroMilkTeaBlock = blocks.register("taro_milk_tea_block", TaroMilkTeaBlock::new);
         strawberryMilkTeaBlock = blocks.register("strawberry_milk_tea_block", StrawberryMilkTeaBlock::new);
-        cassavaCropBlock = blocks.register("cassava_crop_block",
-                () -> new CassavaCropBlock(bobaCraft));
+        cassavaCropBlock = blocks.register("cassava_crop_block", () -> new CassavaCropBlock(itemGroup, modID));
 
     }
 

@@ -4,6 +4,7 @@ import com.blou.bobacraft.BobaCraft;
 import com.blou.bobacraft.init.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -12,7 +13,9 @@ import net.minecraft.world.IBlockReader;
 
 public class CassavaCropBlock extends CropsBlock {
 
-    private final BobaCraft bobaCraft;
+    private final ItemGroup itemGroup;
+    private final String modID;
+
     private final VoxelShape[] shapeByAge = new VoxelShape[]{
             Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D),
             Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D),
@@ -24,7 +27,7 @@ public class CassavaCropBlock extends CropsBlock {
             Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
     };
 
-    public CassavaCropBlock(BobaCraft bobaCraft) {
+    public CassavaCropBlock(ItemGroup itemGroup, String modID) {
 
         super(AbstractBlock.Properties
             .create(Material.PLANTS)
@@ -34,13 +37,14 @@ public class CassavaCropBlock extends CropsBlock {
             .sound(SoundType.CROP)
         );
 
-        this.bobaCraft = bobaCraft;
+        this.itemGroup = itemGroup;
+        this.modID = modID;
 
     }
 
     @Override
     protected IItemProvider getSeedsItem() {
-        return ModItems.getInstance(bobaCraft).getCassavaSeedItem();
+        return ModItems.getInstance(itemGroup, modID).getCassavaSeedItem();
     }
 
     @Override

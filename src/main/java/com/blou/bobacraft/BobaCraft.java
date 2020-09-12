@@ -20,14 +20,14 @@ import javax.annotation.Nonnull;
 @Mod("bobacraft")
 public class BobaCraft {
 
+    private final String modID;
+    private final ItemGroup tab;
     private final ModBlocks modBlocks;
     private final ModItems modItems;
-    private final ItemGroup tab;
 
     public BobaCraft() {
 
-        modBlocks = ModBlocks.getInstance(this);
-        modItems = ModItems.getInstance(this);
+        modID = "bobacraft";
 
         tab = new ItemGroup("bobaTab") {
             @Override @Nonnull
@@ -35,6 +35,9 @@ public class BobaCraft {
                 return new ItemStack(modItems.getCreativeTabIcon());
             }
         };
+
+        modBlocks = ModBlocks.getInstance(tab, modID);
+        modItems = ModItems.getInstance(tab, modID);
 
         // Register the setup method for modloading.
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -74,13 +77,5 @@ public class BobaCraft {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {}
-
-    public String getModID() {
-        return "bobacraft";
-    }
-
-    public ItemGroup getTab() {
-        return tab;
-    }
 
 }

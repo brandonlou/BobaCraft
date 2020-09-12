@@ -3,6 +3,7 @@ package com.blou.bobacraft.items;
 import com.blou.bobacraft.BobaCraft;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Rarity;
 
 public class BobaBallItem extends Item {
@@ -11,10 +12,10 @@ public class BobaBallItem extends Item {
     private static final int hunger = 1; // Restores half a heart.
     private static final float saturation = 0.5f;
 
-    public BobaBallItem(BobaCraft bobaCraft) {
+    public BobaBallItem(ItemGroup itemGroup) {
 
         super(new Item.Properties()
-                .group(bobaCraft.getTab())
+                .group(itemGroup)
                 .maxStackSize(maxStackSize)
                 .rarity(Rarity.UNCOMMON)
                 .food(new Food.Builder()
