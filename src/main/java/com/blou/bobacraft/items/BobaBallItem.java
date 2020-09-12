@@ -7,17 +7,23 @@ import net.minecraft.item.Rarity;
 
 public class BobaBallItem extends Item {
 
+    private static final int maxStackSize = 64;
+    private static final int hunger = 16;
+    private static final float saturation = 1.0f;
+
     public BobaBallItem(BobaCraft bobaCraft) {
+
         super(new Item.Properties()
                 .group(bobaCraft.getTab())
-                .maxStackSize(64)
+                .maxStackSize(maxStackSize)
                 .rarity(Rarity.UNCOMMON)
                 .food(new Food.Builder()
-                        .hunger(16)
-                        .saturation(0.5f)
+                        .hunger(hunger)
+                        .saturation(saturation)
                         .setAlwaysEdible()
                         .build())
         );
+
     }
 
 }

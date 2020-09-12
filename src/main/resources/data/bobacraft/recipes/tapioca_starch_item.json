@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bobacraft:cassava_root_item"
+    }
+  ],
+  "result":
+  {
+    "item": "bobacraft:tapioca_starch_item",
+    "count": 4
+  }
+}

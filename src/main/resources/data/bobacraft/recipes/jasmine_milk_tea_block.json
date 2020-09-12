@@ -11,7 +11,7 @@
     "l": { "item": "minecraft:birch_leaves" },
     "s": { "item": "minecraft:sugar" },
     "m": { "item": "minecraft:milk_bucket" },
-    "i": { "item": "minecraft:ink_sac" }
+    "i": { "item": "bobacraft:boba_ball_item" }
   },
   "result":
   {

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bobacraft:tapioca_starch_item"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result":
+  {
+    "item": "bobacraft:boba_ball_item",
+    "count": 6
+  }
+}

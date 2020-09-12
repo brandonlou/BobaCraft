@@ -3,6 +3,7 @@ package com.blou.bobacraft;
 import com.blou.bobacraft.init.ModBlocks;
 import com.blou.bobacraft.init.ModItems;
 import com.blou.bobacraft.util.RenderHelper;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
@@ -52,13 +53,23 @@ public class BobaCraft {
 
     private void setup(final FMLCommonSetupEvent event) {
 
+        // Array of all translucent blocks to be rendered.
+        Block[] translucentBlocks = {
+                modBlocks.getBlackMilkTeaBlock(),
+                modBlocks.getThaiMilkTeaBlock(),
+                modBlocks.getJasmineMilkTeaBlock(),
+                modBlocks.getGreenMilkTeaBlock(),
+                modBlocks.getTaroMilkTeaBlock(),
+                modBlocks.getStrawberryMilkTeaBlock()
+        };
+
+        // Render each solid and translucent layer of these blocks appropriately.
+        for(Block block : translucentBlocks) {
+            RenderTypeLookup.setRenderLayer(block, RenderHelper::getSolidOrTranslucent);
+        }
+
+        // Render crops to look like crops.
         RenderTypeLookup.setRenderLayer(modBlocks.getCassavaCropBlock(), RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(modBlocks.getBlackMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getThaiMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getGreenMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getJasmineMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getTaroMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
-        RenderTypeLookup.setRenderLayer(modBlocks.getStrawberryMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
 
     }
 
