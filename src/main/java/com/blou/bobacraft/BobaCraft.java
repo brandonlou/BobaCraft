@@ -3,6 +3,7 @@ package com.blou.bobacraft;
 import com.blou.bobacraft.init.ModBlocks;
 import com.blou.bobacraft.init.ModItems;
 import com.blou.bobacraft.util.RenderHelper;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -23,8 +24,10 @@ public class BobaCraft {
     private final ItemGroup tab;
 
     public BobaCraft() {
+
         modBlocks = ModBlocks.getInstance(this);
         modItems = ModItems.getInstance(this);
+
         tab = new ItemGroup("bobaTab") {
             @Override @Nonnull
             public ItemStack createIcon() {
@@ -40,7 +43,7 @@ public class BobaCraft {
 
         // Register our custom blocks and items with the event bus.
         modBlocks.getBlocksRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
-        modItems.getItems().register(FMLJavaModLoadingContext.get().getModEventBus());
+        modItems.getItemsRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
 
         // Register ourselves for server and other game events we are interested in.
         MinecraftForge.EVENT_BUS.register(this);
@@ -49,17 +52,17 @@ public class BobaCraft {
 
     private void setup(final FMLCommonSetupEvent event) {
 
-        String[] blocksToRender = {"black_milk_tea_block", "jasmine_milk_tea_block", "green_milk_tea_block",
-                "thai_milk_tea_block", "taro_milk_tea_block", "strawberry_milk_tea_block"};
-
-        for(String block : blocksToRender) {
-            RenderTypeLookup.setRenderLayer(modBlocks.getBlock(block), RenderHelper::getSolidOrTranslucent);
-        }
+        RenderTypeLookup.setRenderLayer(modBlocks.getCassavaCropBlock(), RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(modBlocks.getBlackMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getThaiMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getGreenMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getJasmineMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getTaroMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
+        RenderTypeLookup.setRenderLayer(modBlocks.getStrawberryMilkTeaBlock(), RenderHelper::getSolidOrTranslucent);
 
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {
-    }
+    private void doClientStuff(final FMLClientSetupEvent event) {}
 
     public String getModID() {
         return "bobacraft";

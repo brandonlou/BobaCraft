@@ -1,5 +1,9 @@
 {
   "itemGroup.bobaTab": "Boba",
+
+  "item.bobacraft.boba_ball_item": "Boba Ball",
+
+  "block.bobacraft.cassava_crop_block": "Cassava Seeds",
   "block.bobacraft.black_milk_tea_block": "Black Milk Tea",
   "block.bobacraft.thai_milk_tea_block": "Thai Milk Tea",
   "block.bobacraft.green_milk_tea_block": "Green Milk Tea",

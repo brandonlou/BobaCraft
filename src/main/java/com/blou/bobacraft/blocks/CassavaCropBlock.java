@@ -10,7 +10,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 
-public class TapiocaCropBlock extends CropsBlock {
+public class CassavaCropBlock extends CropsBlock {
 
     private final BobaCraft bobaCraft;
     private final VoxelShape[] shapeByAge = new VoxelShape[]{
@@ -24,7 +24,7 @@ public class TapiocaCropBlock extends CropsBlock {
             Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
     };
 
-    public TapiocaCropBlock(BobaCraft bobaCraft) {
+    public CassavaCropBlock(BobaCraft bobaCraft) {
 
         super(AbstractBlock.Properties
             .create(Material.PLANTS)
@@ -40,7 +40,7 @@ public class TapiocaCropBlock extends CropsBlock {
 
     @Override
     protected IItemProvider getSeedsItem() {
-        return ModItems.getInstance(bobaCraft).getTapiocaSeedItem();
+        return ModItems.getInstance(bobaCraft).getCassavaSeedItem();
     }
 
     @Override

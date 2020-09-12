@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "bobacraft:items/tapioca_seed_item"
+    "layer0": "bobacraft:items/cassava_seed_item"
   }
 }

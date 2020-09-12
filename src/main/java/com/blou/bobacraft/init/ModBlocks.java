@@ -7,9 +7,6 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class ModBlocks {
 
     private static ModBlocks instance;
@@ -19,18 +16,21 @@ public class ModBlocks {
     }
 
     private final DeferredRegister<Block> blocks;
-    private final Map<String, RegistryObject<Block>> bobaBlocks;
+    private final RegistryObject<Block> blackMilkTeaBlock, thaiMilkTeaBlock, greenMilkTeaBlock, jasmineMilkTeaBlock,
+        taroMilkTeaBlock, strawberryMilkTeaBlock, cassavaCropBlock;
 
     private ModBlocks(BobaCraft bobaCraft) {
+
         blocks = DeferredRegister.create(ForgeRegistries.BLOCKS, bobaCraft.getModID());
-        bobaBlocks = new HashMap<String, RegistryObject<Block>>() {{
-            put("black_milk_tea_block", blocks.register("black_milk_tea_block", BlackMilkTeaBlock::new));
-            put("thai_milk_tea_block", blocks.register("thai_milk_tea_block", ThaiMilkTeaBlock::new));
-            put("green_milk_tea_block", blocks.register("green_milk_tea_block", GreenMilkTeaBlock::new));
-            put("jasmine_milk_tea_block", blocks.register("jasmine_milk_tea_block", JasmineMilkTeaBlock::new));
-            put("taro_milk_tea_block", blocks.register("taro_milk_tea_block", TaroMilkTeaBlock::new));
-            put("strawberry_milk_tea_block", blocks.register("strawberry_milk_tea_block", StrawberryMilkTeaBlock::new));
-        }};
+
+        blackMilkTeaBlock = blocks.register("black_milk_tea_block", BlackMilkTeaBlock::new);
+        thaiMilkTeaBlock = blocks.register("thai_milk_tea_block", ThaiMilkTeaBlock::new);
+        greenMilkTeaBlock = blocks.register("green_milk_tea_block", GreenMilkTeaBlock::new);
+        jasmineMilkTeaBlock = blocks.register("jasmine_milk_tea_block", JasmineMilkTeaBlock::new);
+        taroMilkTeaBlock = blocks.register("taro_milk_tea_block", TaroMilkTeaBlock::new);
+        strawberryMilkTeaBlock = blocks.register("strawberry_milk_tea_block", StrawberryMilkTeaBlock::new);
+        cassavaCropBlock = blocks.register("cassava_crop_block",
+                () -> new CassavaCropBlock(bobaCraft));
 
     }
 
@@ -38,8 +38,32 @@ public class ModBlocks {
         return blocks;
     }
 
-    public Block getBlock(String key) {
-        return bobaBlocks.get(key).get();
+    public Block getBlackMilkTeaBlock() {
+        return blackMilkTeaBlock.get();
+    }
+
+    public Block getThaiMilkTeaBlock() {
+        return thaiMilkTeaBlock.get();
+    }
+
+    public Block getGreenMilkTeaBlock() {
+        return greenMilkTeaBlock.get();
+    }
+
+    public Block getJasmineMilkTeaBlock() {
+        return jasmineMilkTeaBlock.get();
+    }
+
+    public Block getTaroMilkTeaBlock() {
+        return taroMilkTeaBlock.get();
+    }
+
+    public Block getStrawberryMilkTeaBlock() {
+        return strawberryMilkTeaBlock.get();
+    }
+
+    public Block getCassavaCropBlock() {
+        return cassavaCropBlock.get();
     }
 
 }
