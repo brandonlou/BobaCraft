@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "bobacraft:blocks/crops/cassava_crop_stage5"
+  }
+}
