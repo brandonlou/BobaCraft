@@ -14,7 +14,7 @@ public class CassavaSeedItem extends BlockItem {
         super(block, new Item.Properties()
             .group(itemGroup)
             .maxStackSize(maxStackSize)
-            .rarity(Rarity.UNCOMMON));
+            .rarity(Rarity.COMMON));
     }
 
 }

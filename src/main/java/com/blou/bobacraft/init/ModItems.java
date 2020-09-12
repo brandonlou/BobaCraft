@@ -1,11 +1,7 @@
 package com.blou.bobacraft.init;
 
 import com.blou.bobacraft.blockitems.*;
-import com.blou.bobacraft.items.BobaBallItem;
-import com.blou.bobacraft.items.BobaPopsicleItem;
-import com.blou.bobacraft.items.CassavaRootItem;
-import com.blou.bobacraft.items.TapiocaStarchItem;
-import net.minecraft.item.BlockItem;
+import com.blou.bobacraft.items.*;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
@@ -23,8 +19,7 @@ public class ModItems {
 
     private final ModBlocks modBlocks;
     private final DeferredRegister<Item> items;
-    private final RegistryObject<BlockItem> blackMilkTeaBlockItem;
-    private final RegistryObject<Item> cassavaSeedItem;
+    private final RegistryObject<Item> bobaBallItem, cassavaSeedItem;
 
     private ModItems(ItemGroup itemGroup, String modID) {
 
@@ -35,12 +30,13 @@ public class ModItems {
 
         items.register("cassava_root_item", () -> new CassavaRootItem(itemGroup));
         items.register("tapioca_starch_item", () -> new TapiocaStarchItem(itemGroup));
-        items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
+        bobaBallItem = items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
         items.register("boba_popsicle_item", () -> new BobaPopsicleItem(itemGroup));
+        items.register("popcorn_chicken_item", () -> new PopcornChickenItem(itemGroup));
 
         // Block items
 
-        blackMilkTeaBlockItem = items.register("black_milk_tea_block",
+        items.register("black_milk_tea_block",
                 () -> new BlackMilkTeaItem(modBlocks.getBlackMilkTeaBlock(), itemGroup));
 
         items.register("jasmine_milk_tea_block",
@@ -68,7 +64,7 @@ public class ModItems {
     }
 
     public IItemProvider getCreativeTabIcon() {
-        return blackMilkTeaBlockItem.get();
+        return bobaBallItem.get();
     }
 
     public IItemProvider getCassavaSeedItem() {

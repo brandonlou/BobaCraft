@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_chicken"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result":
+  {
+    "item": "bobacraft:popcorn_chicken_item",
+    "count": 2
+  }
+}

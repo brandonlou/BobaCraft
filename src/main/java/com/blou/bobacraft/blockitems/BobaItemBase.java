@@ -1,6 +1,5 @@
 package com.blou.bobacraft.blockitems;
 
-import com.blou.bobacraft.BobaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.item.*;
 import net.minecraft.potion.EffectInstance;
@@ -20,7 +19,7 @@ public abstract class BobaItemBase extends BlockItem {
         super(block, new Item.Properties()
                 .group(itemGroup)
                 .maxStackSize(maxStackSize)
-                .rarity(Rarity.UNCOMMON)
+                .rarity(Rarity.COMMON)
                 .food(new Food.Builder()
                         .hunger(health)
                         .saturation(saturation)
