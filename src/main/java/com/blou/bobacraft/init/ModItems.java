@@ -26,14 +26,6 @@ public class ModItems {
         modBlocks = ModBlocks.getInstance(itemGroup, modID);
         items = DeferredRegister.create(ForgeRegistries.ITEMS, modID);
 
-        // Regular items
-
-        items.register("cassava_root_item", () -> new CassavaRootItem(itemGroup));
-        items.register("tapioca_starch_item", () -> new TapiocaStarchItem(itemGroup));
-        bobaBallItem = items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
-        items.register("boba_popsicle_item", () -> new BobaPopsicleItem(itemGroup));
-        items.register("popcorn_chicken_item", () -> new PopcornChickenItem(itemGroup));
-
         // Block items
 
         items.register("black_milk_tea_block",
@@ -56,6 +48,14 @@ public class ModItems {
 
         cassavaSeedItem = items.register("cassava_seed_item",
                 () -> new CassavaSeedItem(modBlocks.getCassavaCropBlock(), itemGroup));
+
+        // Regular items
+
+        bobaBallItem = items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
+        items.register("boba_popsicle_item", () -> new BobaPopsicleItem(itemGroup));
+        items.register("popcorn_chicken_item", () -> new PopcornChickenItem(itemGroup));
+        items.register("cassava_root_item", () -> new CassavaRootItem(itemGroup));
+        items.register("tapioca_starch_item", () -> new TapiocaStarchItem(itemGroup));
 
     }
 

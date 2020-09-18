@@ -8,7 +8,9 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -48,7 +50,9 @@ public class BobaCraft {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 
         // Register the doClientStuff method for modloading.
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        });
 
         // Register our custom blocks and items with the event bus.
         modBlocks.getBlocksRegister().register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -60,6 +64,9 @@ public class BobaCraft {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
+    }
+
+    private void doClientStuff(final FMLClientSetupEvent event) {
 
         // Array of all translucent blocks to be rendered.
         Block[] translucentBlocks = {
@@ -80,7 +87,5 @@ public class BobaCraft {
         RenderTypeLookup.setRenderLayer(modBlocks.getCassavaCropBlock(), RenderType.getCutout());
 
     }
-
-    private void doClientStuff(final FMLClientSetupEvent event) {}
 
 }
