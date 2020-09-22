@@ -2,6 +2,8 @@
 
 > Satisfy your boba cravings in Minecraft!
 
+![Six boba drinks](https://media.forgecdn.net/attachments/313/982/boba.png)
+
 View the Wiki for crafting recipes and information!
 
 ### Setup
