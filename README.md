@@ -1,8 +1,8 @@
 # [BobaCraft](https://www.curseforge.com/minecraft/mc-mods/bobacraft)
 
 > Satisfy your boba cravings in Minecraft!
-
-![Six boba drinks](https://media.forgecdn.net/attachments/313/982/boba.png)
+ 
+![Six boba drinks](https://user-images.githubusercontent.com/14984696/93945029-a873cc80-fd25-11ea-9a20-f36daeb5276c.png)
 
 View the Wiki for crafting recipes and information!
 
