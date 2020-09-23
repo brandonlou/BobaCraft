@@ -1,0 +1,4 @@
+rootProject.name = 'BobaCraft'
+
+// Prepare for Gradle 5.0
+enableFeaturePreview('STABLE_PUBLISHING')
