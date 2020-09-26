@@ -23,17 +23,17 @@ import java.util.Objects;
 import java.util.Random;
 
 @Mod.EventBusSubscriber(modid="bobacraft", bus=Mod.EventBusSubscriber.Bus.MOD, value=Dist.CLIENT)
-public class GrassHarvestModifier extends LootModifier {
+public class FernHarvestModifier extends LootModifier {
 
-    public GrassHarvestModifier(ILootCondition[] conditionsIn) {
+    public FernHarvestModifier(ILootCondition[] conditionsIn) {
         super(conditionsIn);
     }
 
     @SubscribeEvent
     public static void registerLootModifierSerializers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
 
-        event.getRegistry().register(new GrassHarvestModifier.Serializer().setRegistryName(
-                new ResourceLocation("bobacraft", "grass_harvest")));
+        event.getRegistry().register(new FernHarvestModifier.Serializer().setRegistryName(
+                new ResourceLocation("bobacraft", "fern_harvest")));
 
     }
 
@@ -56,15 +56,15 @@ public class GrassHarvestModifier extends LootModifier {
 
     }
 
-    private static class Serializer extends GlobalLootModifierSerializer<GrassHarvestModifier> {
+    private static class Serializer extends GlobalLootModifierSerializer<FernHarvestModifier> {
 
         @Override
-        public GrassHarvestModifier read(ResourceLocation name, JsonObject json, ILootCondition[] conditions) {
-            return new GrassHarvestModifier(conditions);
+        public FernHarvestModifier read(ResourceLocation name, JsonObject json, ILootCondition[] conditions) {
+            return new FernHarvestModifier(conditions);
         }
 
         @Override
-        public JsonObject write(GrassHarvestModifier instance) {
+        public JsonObject write(FernHarvestModifier instance) {
             return this.makeConditions(instance.conditions);
         }
 

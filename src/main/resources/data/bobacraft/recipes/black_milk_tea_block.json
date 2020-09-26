@@ -4,14 +4,14 @@
   [
     "lll",
     "sms",
-    "iii"
+    "bbb"
   ],
   "key":
   {
     "l": { "item": "minecraft:oak_leaves" },
-    "s": { "item": "minecraft:sugar" },
+    "s": { "tag": "bobacraft:sweeteners" },
     "m": { "item": "minecraft:milk_bucket" },
-    "i": { "item": "bobacraft:boba_ball_item" }
+    "b": { "item": "bobacraft:boba_ball_item" }
   },
   "result":
   {

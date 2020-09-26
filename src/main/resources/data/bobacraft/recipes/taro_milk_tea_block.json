@@ -4,14 +4,14 @@
   [
     "lll",
     "sms",
-    "iii"
+    "bbb"
   ],
   "key":
   {
     "l": { "item": "minecraft:chorus_fruit" },
-    "s": { "item": "minecraft:sugar" },
+    "s": { "item": "bobacraft:sweeteners" },
     "m": { "item": "minecraft:milk_bucket" },
-    "i": { "item": "bobacraft:boba_ball_item" }
+    "b": { "item": "bobacraft:boba_ball_item" }
   },
   "result":
   {

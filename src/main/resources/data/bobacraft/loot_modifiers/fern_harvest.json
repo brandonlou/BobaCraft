@@ -1,5 +1,5 @@
 {
-  "type": "bobacraft:grass_harvest",
+  "type": "bobacraft:fern_harvest",
   "conditions": [
     {
       "condition": "block_state_property",
