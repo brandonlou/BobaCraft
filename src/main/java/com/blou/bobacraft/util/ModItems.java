@@ -1,4 +1,4 @@
-package com.blou.bobacraft.init;
+package com.blou.bobacraft.util;
 
 import com.blou.bobacraft.blockitems.*;
 import com.blou.bobacraft.items.*;
@@ -52,6 +52,7 @@ public class ModItems {
         // Regular items
 
         bobaBallItem = items.register("boba_ball_item", () -> new BobaBallItem(itemGroup));
+        items.register("grass_jelly_item", () -> new GrassJellyItem(itemGroup));
         items.register("boba_popsicle_item", () -> new BobaPopsicleItem(itemGroup));
         items.register("popcorn_chicken_item", () -> new PopcornChickenItem(itemGroup));
         items.register("cassava_root_item", () -> new CassavaRootItem(itemGroup));

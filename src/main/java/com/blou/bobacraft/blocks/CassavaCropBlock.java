@@ -1,6 +1,6 @@
 package com.blou.bobacraft.blocks;
 
-import com.blou.bobacraft.init.ModItems;
+import com.blou.bobacraft.util.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemGroup;

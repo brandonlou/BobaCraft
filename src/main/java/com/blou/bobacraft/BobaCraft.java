@@ -1,7 +1,7 @@
 package com.blou.bobacraft;
 
-import com.blou.bobacraft.init.ModBlocks;
-import com.blou.bobacraft.init.ModItems;
+import com.blou.bobacraft.util.ModBlocks;
+import com.blou.bobacraft.util.ModItems;
 import com.blou.bobacraft.util.RenderHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;

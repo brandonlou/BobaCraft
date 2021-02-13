@@ -1,4 +1,4 @@
-package com.blou.bobacraft.init;
+package com.blou.bobacraft.util;
 
 import com.blou.bobacraft.blocks.*;
 import net.minecraft.block.Block;

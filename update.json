@@ -1,6 +1,8 @@
 {
   "homepage": "https://github.com/brandonlou/BobaCraft/releases",
   "promos": {
+    "1.16.5-latest": "1.16.5-1.0.0",
+    "1.16.5-recommend": "1.16.5-1.0.0",
     "1.16.3-latest": "1.16.3-1.0.2",
     "1.16.3-recommend": "1.16.3-1.0.2",
     "1.16.2-latest": "1.16.3-1.0.2",
